@@ -3,7 +3,7 @@
 A mock-up site for **Brickstone** ([@brickstone_atl](https://www.instagram.com/brickstone_atl/)).
 It's a demo to show the owner. The only real information on it is the name, the address, the logo's
 "Subs | Pizzas | Pastas | Coffee" and the Instagram link — every menu item, price, hour,
-address, phone number, paragraph and photo is a neutral placeholder ("Item name", "$00",
+phone number, paragraph and photo is a neutral placeholder ("Item name", "$00",
 "00:00 – 00:00", "Photo") waiting for the owner's real details. Nothing is made up.
 
 Built the same way as ethanmogilinedi.com: Vite + GSAP, served on Railway by `sirv`.
