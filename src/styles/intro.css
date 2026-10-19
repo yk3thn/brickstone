@@ -1,0 +1,76 @@
+/* The opening (see intro.js). Until the wall starts to part, #intro's own
+   navy backing covers the page; from then on the courses do. */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  background: var(--navy);
+  cursor: pointer;
+}
+
+.intro__wall {
+  position: absolute;
+  inset: 0;
+}
+
+.intro__course {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  background-color: var(--navy-deep);
+  background-repeat: repeat-x;
+  will-change: transform;
+}
+
+.intro__stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* proportions taken from the logo artwork, all relative to the wordmark */
+  --mark-w: min(84vw, 760px, 118vh);
+  gap: calc(var(--mark-w) * 0.05);
+  pointer-events: none;
+}
+
+.intro__mark {
+  width: var(--mark-w);
+  color: var(--orange);
+  will-change: transform;
+}
+
+.intro__mark svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* The logo's dark outline: a stroke painted under the fill, so only its
+   outer half shows. Letters start hidden; intro.js lays them in. */
+.intro__mark path {
+  opacity: 0;
+  stroke: var(--navy-deep);
+  stroke-width: 12;
+  stroke-linejoin: round;
+  paint-order: stroke fill;
+}
+
+.intro__tagline {
+  color: var(--cream);
+  font-weight: var(--weight-display);
+  font-size: calc(var(--mark-w) * 0.05);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+}
+
+.intro__tagline span {
+  margin-inline: 0.5em;
+  color: var(--orange);
+}

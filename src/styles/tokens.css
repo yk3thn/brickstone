@@ -1,0 +1,89 @@
+/* ==========================================================================
+   Design tokens — the one place to restyle the site.
+
+   Every colour, size, space, radius and timing used anywhere else is one of
+   these variables. Change a value here and it changes everywhere.
+   ========================================================================== */
+
+:root {
+  /* --- Colour ------------------------------------------------------------
+     The first three are colour-picked straight from the Brickstone logo
+     (tools/trace_logo.py writes them to tools/out/palette.txt). The rest are
+     derived from them so the palette stays in one family. */
+  --navy: #1b2353;        /* brick face — the brand's main colour */
+  --navy-deep: #141d4c;   /* mortar — the darker blue between the bricks */
+  --orange: #b77543;      /* the wordmark */
+
+  --orange-hover: #c6844f;
+  --orange-ink: #8f5428;  /* orange text on cream at small sizes (AA contrast) */
+  --navy-soft: #252e63;   /* raised surfaces on navy (cards, inputs) */
+  --cream: #f6f0e8;       /* light sections and text on navy */
+  --cream-deep: #ece3d6;  /* mortar on cream, pressed surfaces */
+  --paper: #fcf9f4;       /* cards on cream */
+
+  --text-on-dark: var(--cream);
+  --muted-on-dark: rgba(246, 240, 232, 0.68);
+  --line-on-dark: rgba(246, 240, 232, 0.14);
+  --text-on-light: var(--navy);
+  --muted-on-light: rgba(27, 35, 83, 0.68);
+  --line-on-light: rgba(27, 35, 83, 0.14);
+
+  /* --- Type --------------------------------------------------------------
+     One family for the whole site. Three weights only: body, UI, display. */
+  --font: "Bricolage Grotesque Variable", "Bricolage Grotesque", system-ui, sans-serif;
+  --weight-body: 400;
+  --weight-ui: 600;
+  --weight-display: 800;
+
+  /* Fluid scale: each step grows smoothly between phone and desktop. */
+  --fs-display: clamp(2.75rem, 1.4rem + 5.4vw, 6.25rem);
+  --fs-h2: clamp(2.1rem, 1.35rem + 3vw, 4rem);
+  --fs-h3: clamp(1.25rem, 1.1rem + 0.55vw, 1.6rem);
+  --fs-lead: clamp(1.075rem, 1rem + 0.35vw, 1.3rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.9rem;
+  --fs-eyebrow: 0.8rem;
+
+  --lh-tight: 0.95;
+  --lh-heading: 1.05;
+  --lh-body: 1.6;
+  --track-display: -0.025em;
+  --track-eyebrow: 0.16em;
+
+  /* --- Space (8-point scale) --------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --section-pad: clamp(4.5rem, 3rem + 6vw, 9rem);
+
+  /* --- Layout ------------------------------------------------------------ */
+  --container: 1240px;
+  --gutter: clamp(1.25rem, 0.6rem + 3vw, 3rem);
+  --nav-h: 76px;
+
+  /* --- Shape ------------------------------------------------------------- */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  /* --- Depth ------------------------------------------------------------- */
+  --shadow-card: 0 1px 0 rgba(20, 29, 76, 0.06), 0 18px 40px -22px rgba(20, 29, 76, 0.45);
+  --shadow-lift: 0 2px 0 rgba(20, 29, 76, 0.06), 0 28px 60px -26px rgba(20, 29, 76, 0.55);
+
+  /* --- Motion ------------------------------------------------------------ */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 180ms;
+  --dur: 320ms;
+  --dur-reveal: 900ms;
+  --reveal-step: 90ms;   /* stagger between items revealed together */
+  --reveal-shift: 28px;  /* how far an item rises as it is revealed */
+}
