@@ -1,5 +1,5 @@
 import { visit, site } from "../content.js";
-import { sectionHeader } from "../components/ui.js";
+import { sectionHeader, button } from "../components/ui.js";
 
 export default {
   render: () => `
@@ -29,6 +29,7 @@ export default {
               <svg viewBox="0 0 24 32"><path d="M12 1C6 1 1.5 5.5 1.5 11.2 1.5 19 12 31 12 31s10.5-12 10.5-19.8C22.5 5.5 18 1 12 1z"/><circle cx="12" cy="11" r="4" /></svg>
             </div>
             <p class="map__label">${visit.mapLabel}</p>
+            ${site.mapUrl ? `<div class="map__cta">${button({ label: "Get directions", href: site.mapUrl, external: true })}</div>` : ""}
           </div>
         </div>
       </div>

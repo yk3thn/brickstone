@@ -2,7 +2,7 @@
 // Site content — every word, price and link on the page lives here.
 //
 // The only real information below is the name, the four words from the
-// logo and the Instagram link. Everything else is a neutral placeholder
+// logo, the address and the Instagram link. Everything else is a neutral placeholder
 // waiting for the owner's real details — edit this file and the page
 // updates; no markup to touch. (Photos: give any `photo` a `src` and the
 // placeholder tile becomes that image.)
@@ -18,7 +18,8 @@ export const site = {
   // The four words under the logo.
   tagline: ["Subs", "Pizzas", "Pastas", "Coffee"],
 
-  address: ["Address line 1", "City, State ZIP"],
+  address: ["66 Broad St NW", "Atlanta, Georgia 30303"],
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=66+Broad+St+NW+Atlanta+GA+30303",
   phone: "(000) 000-0000",
 
   instagram: {
