@@ -1,4 +1,4 @@
-import { site, nav, footer } from "../content.js";
+import { site, nav, navCta } from "../content.js";
 import { logoMark } from "../components/logo.js";
 
 export default {
@@ -11,21 +11,17 @@ export default {
 
         <div class="footer__cols">
           <div data-reveal style="--i:2">
-            <p class="eyebrow">Visit</p>
+            <p class="eyebrow">Location</p>
             <p>${site.address.join("<br />")}</p>
           </div>
           <div data-reveal style="--i:3">
-            <p class="eyebrow">Hours</p>
-            ${site.hours.map((h) => `<p>${h.days}<br /><span class="muted">${h.time}</span></p>`).join("")}
+            <p class="eyebrow">Explore</p>
+            <ul>${[navCta, ...nav].map((l) => `<li><a href="${l.href}">${l.label}</a></li>`).join("")}</ul>
           </div>
           <div data-reveal style="--i:4">
-            <p class="eyebrow">Explore</p>
-            <ul>${nav.map((l) => `<li><a href="${l.href}">${l.label}</a></li>`).join("")}</ul>
-          </div>
-          <div data-reveal style="--i:5">
             <p class="eyebrow">Contact</p>
             <ul>
-              <li><a href="tel:${site.phone.replace(/[^0-9+]/g, "")}">${site.phone}</a></li>
+              <li>${site.phone}</li>
               <li><a href="${site.instagram.url}" target="_blank" rel="noopener">${site.instagram.handle}</a></li>
             </ul>
           </div>
@@ -33,7 +29,6 @@ export default {
 
         <div class="footer__base">
           <span>&copy; ${new Date().getFullYear()} ${site.name}</span>
-          <span>${footer.note}</span>
         </div>
       </div>
     </footer>`,

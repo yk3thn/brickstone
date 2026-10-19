@@ -1,4 +1,4 @@
-import { nav as links, site } from "../content.js";
+import { nav as links, navCta } from "../content.js";
 import { logoMark } from "../components/logo.js";
 import { button } from "../components/ui.js";
 
@@ -12,16 +12,15 @@ export default {
         <nav class="nav__links" aria-label="Main">
           ${links.map((l) => `<a href="${l.href}">${l.label}</a>`).join("")}
         </nav>
-        <div class="nav__cta">${button({ label: "Order online", href: site.orderUrl })}</div>
+        <div class="nav__cta">${button(navCta)}</div>
         <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
           <span></span><span></span>
         </button>
       </div>
       <div class="mobile-menu" id="mobile-menu">
         <nav aria-label="Main">
-          ${links.map((l, i) => `<a href="${l.href}" style="--i:${i}">${l.label}</a>`).join("")}
+          ${[navCta, ...links].map((l, i) => `<a href="${l.href}" style="--i:${i}">${l.label}</a>`).join("")}
         </nav>
-        ${button({ label: "Order online", href: site.orderUrl })}
       </div>
     </header>`,
 

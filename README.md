@@ -1,8 +1,10 @@
 # Brickstone — website demo
 
-A mock-up site for **Brickstone** (subs · pizzas · pastas · coffee, Downtown Atlanta,
-[@brickstone_atl](https://www.instagram.com/brickstone_atl/)). It's a demo to show the
-owner, so **all copy, prices, hours, the address and the photos are placeholders**.
+A mock-up site for **Brickstone** ([@brickstone_atl](https://www.instagram.com/brickstone_atl/)).
+It's a demo to show the owner. The only real information on it is the name, the logo's
+"Subs | Pizzas | Pastas | Coffee" and the Instagram link — every menu item, price, hour,
+address, phone number, paragraph and photo is a neutral placeholder ("Item name", "$00",
+"00:00 – 00:00", "Photo") waiting for the owner's real details. Nothing is made up.
 
 Built the same way as ethanmogilinedi.com: Vite + GSAP, served on Railway by `sirv`.
 
@@ -19,6 +21,7 @@ npm run build      # → dist/
 | To change…                         | Edit                                   |
 | ---------------------------------- | -------------------------------------- |
 | Any words, prices, hours, links    | `src/content.js` (everything is here)  |
+| Menu items                         | replace `placeholderItems(6)` in `content.js` with a list of real items |
 | Colours, font, sizes, spacing      | `src/styles/tokens.css`                |
 | Add / remove / reorder sections    | `SECTIONS` in `src/main.js`            |
 | One section's layout               | `src/sections/<name>.js` + its block in `src/styles/sections.css` |
@@ -40,7 +43,7 @@ Words wrapped in `*asterisks*` in a title are set in orange.
   400 body, 600 UI, 800 headings.
 - **Texture** — the logo's brick wall, measured off the artwork (long + short bricks, each
   course shifted half a pattern), generated in `src/components/brick.js` and used for the
-  intro, the hero, catering, the footer and every placeholder photo.
+  intro, the hero, the footer and every placeholder photo.
 
 ## How the intro works
 
@@ -72,7 +75,7 @@ src/content.js           ALL site content
 src/intro.js             the opening animation
 src/ready.js, reveal.js  load gate, scroll reveals
 src/components/          logo, brick texture, photo slot, buttons/labels
-src/sections/            nav, hero, marquee, menu, favorites, story, catering, visit, gallery, footer
+src/sections/            nav, hero, marquee, menu, favorites, about, gallery (Instagram), visit, footer
 src/styles/              tokens, base, components, sections, intro
 tools/                   logo tracer + the original logo
 ```

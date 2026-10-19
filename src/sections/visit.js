@@ -1,5 +1,5 @@
 import { visit, site } from "../content.js";
-import { sectionHeader, button } from "../components/ui.js";
+import { sectionHeader } from "../components/ui.js";
 
 export default {
   render: () => `
@@ -15,13 +15,10 @@ export default {
           </div>
 
           <div class="info-card" data-reveal style="--i:1">
-            <p class="eyebrow">Find us</p>
-            <address class="address">
-              ${site.address.join("<br />")}<br />
-              <span class="muted">On the ${site.landmark}</span>
-            </address>
+            <p class="eyebrow">Location</p>
+            <address class="address">${site.address.join("<br />")}</address>
             <div class="info-card__links">
-              <a href="tel:${site.phone.replace(/[^0-9+]/g, "")}">${site.phone}</a>
+              <span>${site.phone}</span>
               <a href="${site.instagram.url}" target="_blank" rel="noopener">${site.instagram.handle}</a>
             </div>
           </div>
@@ -32,7 +29,6 @@ export default {
               <svg viewBox="0 0 24 32"><path d="M12 1C6 1 1.5 5.5 1.5 11.2 1.5 19 12 31 12 31s10.5-12 10.5-19.8C22.5 5.5 18 1 12 1z"/><circle cx="12" cy="11" r="4" /></svg>
             </div>
             <p class="map__label">${visit.mapLabel}</p>
-            <div class="map__cta">${button({ label: "Get directions", href: site.mapUrl, variant: "primary", external: true })}</div>
           </div>
         </div>
       </div>

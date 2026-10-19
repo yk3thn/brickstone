@@ -15,10 +15,9 @@ export default {
               ${photo({ ...f.photo, ratio: "4 / 3", tone: "navy", className: "card__photo" })}
               <div class="card__body">
                 <div class="card__top">
-                  <span class="chip">${f.tag}</span>
+                  <h3 class="h3">${f.name}</h3>
                   ${price(f.price)}
                 </div>
-                <h3 class="h3">${f.name}</h3>
                 <p class="card__desc">${f.desc}</p>
               </div>
             </article>`,

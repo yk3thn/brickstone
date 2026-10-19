@@ -10,10 +10,9 @@ import hero from "./sections/hero.js";
 import marquee from "./sections/marquee.js";
 import menu from "./sections/menu.js";
 import favorites from "./sections/favorites.js";
-import story from "./sections/story.js";
-import catering from "./sections/catering.js";
-import visit from "./sections/visit.js";
+import about from "./sections/about.js";
 import gallery from "./sections/gallery.js";
+import visit from "./sections/visit.js";
 import footer from "./sections/footer.js";
 
 import { installWallTextures } from "./components/brick.js";
@@ -24,7 +23,7 @@ import { revealIntroItems, initScrollReveals } from "./reveal.js";
 
 // The page, top to bottom. Reorder, add or remove sections here — each one
 // is a self-contained file in ./sections with its words in content.js.
-const SECTIONS = [hero, marquee, menu, favorites, story, catering, visit, gallery];
+const SECTIONS = [hero, marquee, menu, favorites, about, gallery, visit];
 
 document.querySelector("#app").innerHTML = `
   ${introMarkup()}

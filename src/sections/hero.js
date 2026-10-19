@@ -11,18 +11,14 @@ export default {
       <div class="hero__texture wall wall--navy" aria-hidden="true"></div>
       <div class="hero__inner container">
         <div class="hero__copy">
-          <p class="pill" data-reveal="intro" style="--i:0"><span class="pill__dot"></span>${hero.eyebrow}</p>
-          <h1 class="display" data-reveal="intro" style="--i:1">${emphasize(hero.title)}</h1>
-          <p class="lead hero__lead" data-reveal="intro" style="--i:2">${hero.lead}</p>
-          <div class="hero__actions" data-reveal="intro" style="--i:3">
+          <h1 class="display" data-reveal="intro" style="--i:0">${emphasize(hero.title)}</h1>
+          <p class="lead hero__lead" data-reveal="intro" style="--i:1">${hero.lead}</p>
+          <div class="hero__actions" data-reveal="intro" style="--i:2">
             ${button({ ...hero.primary, variant: "primary" })}
             ${button({ ...hero.secondary, variant: "ghost" })}
           </div>
-          <ul class="hero__facts" data-reveal="intro" style="--i:4">
-            ${hero.facts.map((f) => `<li>${f}</li>`).join("")}
-          </ul>
         </div>
-        <div class="hero__media" data-reveal="intro" style="--i:2">
+        <div class="hero__media" data-reveal="intro" style="--i:1">
           ${photo({ ...hero.photo, ratio: "4 / 5", tone: "deep", eager: true, className: "hero__photo" })}
           <div class="sticker" aria-hidden="true">
             <svg class="sticker__ring" viewBox="0 0 200 200">

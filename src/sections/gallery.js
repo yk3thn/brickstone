@@ -9,12 +9,9 @@ export default {
     <section class="section section--dark gallery" id="gallery">
       <div class="container">
         <div class="gallery__head">
-          <div>
-            <p class="eyebrow" data-reveal style="--i:0">${gallery.eyebrow}</p>
-            <h2 class="h2" data-reveal style="--i:1">${gallery.title}</h2>
-          </div>
-          <div data-reveal style="--i:2">
-            ${button({ label: "Follow along", href: site.instagram.url, variant: "ghost", external: true })}
+          <h2 class="h2" data-reveal>${gallery.title}</h2>
+          <div data-reveal style="--i:1">
+            ${button({ label: site.instagram.handle, href: site.instagram.url, variant: "ghost", external: true })}
           </div>
         </div>
         <div class="gallery__grid">

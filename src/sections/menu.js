@@ -7,12 +7,9 @@ export default {
   render: () => `
     <section class="section section--light menu" id="menu">
       <div class="container">
-        <div class="menu__top">
-          ${sectionHeader(menu)}
-          <p class="menu__note" data-reveal style="--i:3">${menu.note}</p>
-        </div>
+        ${sectionHeader(menu)}
 
-        <div class="tabs" role="tablist" aria-label="Menu categories" data-reveal style="--i:3">
+        <div class="tabs" role="tablist" aria-label="Menu categories" data-reveal style="--i:1">
           ${menu.categories
             .map(
               (c, i) => `
@@ -24,13 +21,12 @@ export default {
             .join("")}
         </div>
 
-        <div class="menu__panels" data-reveal style="--i:4">
+        <div class="menu__panels" data-reveal style="--i:2">
           ${menu.categories
             .map(
               (c, i) => `
             <div class="menu__panel" role="tabpanel" id="panel-${slug(c.name)}"
               aria-labelledby="tab-${slug(c.name)}" ${i === 0 ? "" : "hidden"}>
-              <p class="menu__blurb">${c.blurb}</p>
               <ul class="menu__list">
                 ${c.items
                   .map(

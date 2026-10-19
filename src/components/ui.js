@@ -10,14 +10,11 @@ export function eyebrow(text, { tone = "" } = {}) {
   return `<p class="eyebrow ${tone}">${text}</p>`;
 }
 
-// The standard section heading: eyebrow, title, optional lead line.
-// `reveal` staggers the three in as the section scrolls into view.
-export function sectionHeader({ eyebrow: eb, title, lead, align = "left" }) {
+// The standard section heading: one plain title, revealed on scroll.
+export function sectionHeader({ title }) {
   return `
-    <header class="section-head section-head--${align}">
-      ${eb ? `<p class="eyebrow" data-reveal style="--i:0">${eb}</p>` : ""}
-      <h2 class="h2" data-reveal style="--i:1">${emphasize(title)}</h2>
-      ${lead ? `<p class="lead" data-reveal style="--i:2">${lead}</p>` : ""}
+    <header class="section-head">
+      <h2 class="h2" data-reveal>${emphasize(title)}</h2>
     </header>`;
 }
 
