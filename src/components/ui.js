@@ -18,8 +18,9 @@ export function sectionHeader({ title }) {
     </header>`;
 }
 
-// variant: "primary" (orange) | "ghost" (outlined) | "light" (cream)
-export function button({ label, href, variant = "primary", external = false }) {
+// variant: "primary" (orange) | "ghost" (outlined). Full https:// links open
+// in a new tab.
+export function button({ label, href, variant = "primary", external = /^https?:\/\//.test(href) }) {
   const target = external ? ' target="_blank" rel="noopener"' : "";
   return `<a class="btn btn--${variant}" href="${href}"${target}><span>${label}</span>${arrow()}</a>`;
 }

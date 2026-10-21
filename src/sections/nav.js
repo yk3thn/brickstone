@@ -19,8 +19,9 @@ export default {
       </div>
       <div class="mobile-menu" id="mobile-menu">
         <nav aria-label="Main">
-          ${[navCta, ...links].map((l, i) => `<a href="${l.href}" style="--i:${i}">${l.label}</a>`).join("")}
+          ${links.map((l, i) => `<a href="${l.href}" style="--i:${i}">${l.label}</a>`).join("")}
         </nav>
+        ${button(navCta)}
       </div>
     </header>`,
 

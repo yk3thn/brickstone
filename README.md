@@ -22,6 +22,7 @@ npm run build      # → dist/
 | ---------------------------------- | -------------------------------------- |
 | Any words, prices, hours, links    | `src/content.js` (everything is here)  |
 | Menu items                         | replace `placeholderItems(6)` in `content.js` with a list of real items |
+| Online ordering (Toast)            | paste the Toast ordering link into `orderUrl` in `content.js` — every "Order online" button uses it and opens it in a new tab |
 | Colours, font, sizes, spacing      | `src/styles/tokens.css`                |
 | Add / remove / reorder sections    | `SECTIONS` in `src/main.js`            |
 | One section's layout               | `src/sections/<name>.js` + its block in `src/styles/sections.css` |

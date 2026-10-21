@@ -1,5 +1,5 @@
-import { menu } from "../content.js";
-import { sectionHeader, price } from "../components/ui.js";
+import { menu, order } from "../content.js";
+import { sectionHeader, price, button } from "../components/ui.js";
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
@@ -7,7 +7,10 @@ export default {
   render: () => `
     <section class="section section--light menu" id="menu">
       <div class="container">
-        ${sectionHeader(menu)}
+        <div class="menu__top">
+          ${sectionHeader(menu)}
+          <div data-reveal style="--i:1">${button(order)}</div>
+        </div>
 
         <div class="tabs" role="tablist" aria-label="Menu categories" data-reveal style="--i:1">
           ${menu.categories

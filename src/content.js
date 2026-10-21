@@ -22,6 +22,12 @@ export const site = {
   mapUrl: "https://www.google.com/maps/search/?api=1&query=66+Broad+St+NW+Atlanta+GA+30303",
   phone: "(000) 000-0000",
 
+  // PLACEHOLDER — paste the restaurant's Toast online-ordering link here
+  // (Toast Web: Takeout & delivery > Toast order sources > Restaurant info).
+  // Every "Order online" button on the site uses it, and opens it in a new
+  // tab once it's a full https:// link. Until then they just jump to the menu.
+  orderUrl: "#menu",
+
   instagram: {
     handle: "@brickstone_atl",
     url: "https://www.instagram.com/brickstone_atl/",
@@ -35,18 +41,22 @@ export const site = {
 
 // Top navigation. `href` is the id of a section below.
 export const nav = [
+  { label: "Menu", href: "#menu" },
   { label: "Favorites", href: "#favorites" },
   { label: "About", href: "#about" },
   { label: "Visit", href: "#visit" },
 ];
-export const navCta = { label: "View menu", href: "#menu" };
+
+// The Toast ordering button, wherever it appears (nav, hero, menu).
+export const order = { label: "Order online", href: site.orderUrl };
+export const navCta = order;
 
 export const hero = {
   // Wrap words in *asterisks* to set them in orange.
   title: "Subs, pizzas, pastas *& coffee.*",
   lead: "A short introduction to Brickstone goes here.",
-  primary: { label: "View menu", href: "#menu" },
-  secondary: { label: "Visit", href: "#visit" },
+  primary: order,
+  secondary: { label: "View menu", href: "#menu" },
   photo: { label: "Photo" },
   sticker: "Subs · Pizzas · Pastas · Coffee · ",
 };

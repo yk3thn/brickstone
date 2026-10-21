@@ -278,6 +278,14 @@
    Menu
    ====================================================================== */
 
+.menu__top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+}
+
 .tabs {
   display: flex;
   gap: var(--space-2);

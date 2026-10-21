@@ -1,4 +1,4 @@
-import { site, nav, navCta } from "../content.js";
+import { site, nav } from "../content.js";
 import { logoMark } from "../components/logo.js";
 
 export default {
@@ -16,7 +16,7 @@ export default {
           </div>
           <div data-reveal style="--i:3">
             <p class="eyebrow">Explore</p>
-            <ul>${[navCta, ...nav].map((l) => `<li><a href="${l.href}">${l.label}</a></li>`).join("")}</ul>
+            <ul>${nav.map((l) => `<li><a href="${l.href}">${l.label}</a></li>`).join("")}</ul>
           </div>
           <div data-reveal style="--i:4">
             <p class="eyebrow">Contact</p>
