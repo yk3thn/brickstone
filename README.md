@@ -81,13 +81,16 @@ Below the hero, everything with `data-reveal` eases up as it scrolls into view
 
 ## Deploying (Railway)
 
-`railway.json` builds with `npm run build` and starts `npm run start` (`sirv dist` on
-`$PORT`). Point a Railway service at this repo; no environment variables needed.
+`railway.json` builds with `npm run build` and starts `npm run start`, which runs
+`server.js`: the static files in `dist/` (via `sirv`) on `$PORT`, plus a
+`Strict-Transport-Security` header so browsers always use https. Railway itself redirects
+http to https. Point a Railway service at this repo; no environment variables needed.
 
 ## Files
 
 ```
-index.html               shell (navy first paint, favicon)
+index.html               shell (navy first paint, favicon, SEO tags)
+server.js                production server: dist/ + the always-https header
 public/                  favicon.svg, apple-touch-icon.png, photos/ (web-sized shoot)
 src/render.js            the page as HTML + structured data (section order lives here)
 src/main.js              renders (dev) or picks up (built) the page, starts the intro
