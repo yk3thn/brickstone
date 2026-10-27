@@ -284,7 +284,7 @@
   letter-spacing: -0.01em;
   text-transform: uppercase;
   white-space: nowrap;
-  animation: marquee 34s linear infinite;
+  animation: marquee var(--marquee-duration, 34s) linear infinite;
 }
 
 .marquee__track span {
