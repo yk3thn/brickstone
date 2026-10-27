@@ -29,6 +29,11 @@ export function arrow() {
   return `<svg class="btn__arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 }
 
+// "(678) 300-2621" -> "tel:+16783002621"
+export function telHref(phone) {
+  return `tel:+1${phone.replace(/\D/g, "")}`;
+}
+
 export function price(value) {
   return `<span class="price"><span class="price__sign">$</span>${value}</span>`;
 }

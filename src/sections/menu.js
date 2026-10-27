@@ -1,4 +1,4 @@
-import { menu, order } from "../content.js";
+import { menu, orderCta } from "../content.js";
 import { sectionHeader, price, button } from "../components/ui.js";
 
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
@@ -9,7 +9,7 @@ export default {
       <div class="container">
         <div class="menu__top">
           ${sectionHeader(menu)}
-          <div data-reveal style="--i:1">${button(order)}</div>
+          <div data-reveal style="--i:1">${button(orderCta)}</div>
         </div>
 
         <div class="tabs" role="tablist" aria-label="Menu categories" data-reveal style="--i:1">
@@ -30,6 +30,7 @@ export default {
               (c, i) => `
             <div class="menu__panel" role="tabpanel" id="panel-${slug(c.name)}"
               aria-labelledby="tab-${slug(c.name)}" ${i === 0 ? "" : "hidden"}>
+              ${c.note ? `<p class="menu__note">${c.note}</p>` : ""}
               <ul class="menu__list">
                 ${c.items
                   .map(
@@ -40,7 +41,7 @@ export default {
                       <span class="menu-item__leader" aria-hidden="true"></span>
                       ${price(item.price)}
                     </div>
-                    <p class="menu-item__desc">${item.desc}</p>
+                    ${item.desc ? `<p class="menu-item__desc">${item.desc}</p>` : ""}
                   </li>`,
                   )
                   .join("")}

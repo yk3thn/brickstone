@@ -1,5 +1,6 @@
-import { site, nav } from "../content.js";
+import { site, nav, orderCta } from "../content.js";
 import { logoMark } from "../components/logo.js";
+import { telHref } from "../components/ui.js";
 
 export default {
   render: () => `
@@ -16,12 +17,12 @@ export default {
           </div>
           <div data-reveal style="--i:3">
             <p class="eyebrow">Explore</p>
-            <ul>${nav.map((l) => `<li><a href="${l.href}">${l.label}</a></li>`).join("")}</ul>
+            <ul>${[...nav, orderCta].map((l) => `<li><a href="${l.href}">${l.label}</a></li>`).join("")}</ul>
           </div>
           <div data-reveal style="--i:4">
             <p class="eyebrow">Contact</p>
             <ul>
-              <li>${site.phone}</li>
+              <li><a href="${telHref(site.phone)}">${site.phone}</a></li>
               <li><a href="${site.instagram.url}" target="_blank" rel="noopener">${site.instagram.handle}</a></li>
             </ul>
           </div>

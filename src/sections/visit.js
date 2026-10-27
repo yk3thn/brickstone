@@ -1,5 +1,5 @@
 import { visit, site } from "../content.js";
-import { sectionHeader, button } from "../components/ui.js";
+import { sectionHeader, button, telHref } from "../components/ui.js";
 
 export default {
   render: () => `
@@ -18,7 +18,7 @@ export default {
             <p class="eyebrow">Location</p>
             <address class="address">${site.address.join("<br />")}</address>
             <div class="info-card__links">
-              <span>${site.phone}</span>
+              <a href="${telHref(site.phone)}">${site.phone}</a>
               <a href="${site.instagram.url}" target="_blank" rel="noopener">${site.instagram.handle}</a>
             </div>
           </div>

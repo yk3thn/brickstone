@@ -199,7 +199,7 @@
 .hero__inner {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-8);
   align-items: center;
 }
@@ -208,6 +208,32 @@
   display: grid;
   justify-items: start;
   gap: var(--space-5);
+}
+
+.hero__tag {
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--orange);
+  color: var(--navy);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--weight-ui);
+  letter-spacing: var(--track-eyebrow);
+  text-transform: uppercase;
+}
+
+.hero__price {
+  margin-top: calc(var(--space-2) * -1);
+  color: var(--orange);
+  font-size: clamp(2.6rem, 1.6rem + 3.4vw, 4.75rem);
+  font-weight: var(--weight-display);
+  letter-spacing: var(--track-display);
+  line-height: 1;
+}
+
+.hero__price-sign {
+  margin-right: 0.04em;
+  font-size: 0.55em;
+  vertical-align: 0.6em;
 }
 
 .hero__lead {
@@ -225,7 +251,7 @@
 .hero__media {
   position: relative;
   justify-self: end;
-  width: min(100%, 500px);
+  width: min(100%, 640px);
 }
 
 .hero__photo {
@@ -288,10 +314,9 @@
 
 .tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-2);
   margin: var(--space-8) 0 var(--space-6);
-  overflow-x: auto;
-  scrollbar-width: none;
 }
 
 .tabs::-webkit-scrollbar {
@@ -367,6 +392,11 @@
   color: var(--orange-ink);
 }
 
+.menu__note {
+  margin-bottom: var(--space-4);
+  color: var(--muted-on-light);
+}
+
 .menu-item__desc {
   max-width: 46ch;
   margin-top: 4px;
@@ -392,6 +422,13 @@
   border: 1px solid var(--line-on-dark);
   border-radius: var(--radius-lg);
   background: var(--navy-soft);
+}
+
+.card__photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--navy-deep);
 }
 
 .card .photo {
@@ -448,7 +485,7 @@
 }
 
 .about__inset .photo {
-  border: 6px solid var(--cream);
+  border: 6px solid var(--navy);
   box-shadow: var(--shadow-lift);
 }
 
@@ -458,11 +495,82 @@
 
 .about__p {
   max-width: 54ch;
-  color: var(--muted-on-light);
+  color: var(--muted-on-dark);
 }
 
 .about__p + .about__p {
   margin-top: var(--space-4);
+}
+
+/* ======================================================================
+   Order
+   ====================================================================== */
+
+.order {
+  padding-block: var(--space-9);
+}
+
+.order__options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.order-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 112px;
+  padding: var(--space-5) var(--space-6);
+  border-radius: var(--radius-lg);
+  background: var(--navy);
+  color: var(--cream);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out),
+    background-color var(--dur) var(--ease-out);
+}
+
+.order-option:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lift);
+}
+
+.order-option--featured {
+  background: var(--orange);
+  color: var(--navy);
+}
+
+.order-option--featured:hover {
+  background: var(--orange-hover);
+}
+
+.order-option__label {
+  font-size: var(--fs-h3);
+  font-weight: var(--weight-display);
+  letter-spacing: -0.01em;
+}
+
+.order-option__go {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.85;
+}
+
+.order-option__go .btn__arrow {
+  transition: transform var(--dur) var(--ease-out);
+}
+
+.order-option:hover .btn__arrow {
+  transform: translateX(3px);
 }
 
 /* ======================================================================
@@ -793,6 +901,23 @@
 @media (max-width: 680px) {
   .menu__list {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .order__options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* one swipeable row of tabs on phones, edge to edge */
+  .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin-inline: calc(var(--gutter) * -1);
+    padding-inline: var(--gutter);
+  }
+
+  .order-option {
+    min-height: 84px;
   }
 
   .visit__grid {

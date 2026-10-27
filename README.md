@@ -1,10 +1,9 @@
 # Brickstone — website demo
 
-A mock-up site for **Brickstone** ([@brickstone_atl](https://www.instagram.com/brickstone_atl/)).
-It's a demo to show the owner. The only real information on it is the name, the address, the logo's
-"Subs | Pizzas | Pastas | Coffee" and the Instagram link — every menu item, price, hour,
-phone number, paragraph and photo is a neutral placeholder ("Item name", "$00",
-"00:00 – 00:00", "Photo") waiting for the owner's real details. Nothing is made up.
+Site for **Brickstone** ([@brickstone_atl](https://www.instagram.com/brickstone_atl/)),
+66 Broad St NW, Atlanta. Everything on it comes from the owner: address, phone, hours,
+the menu (copied from the Toast ordering page), the Toast / DoorDash / Uber Eats links and
+the photo shoot. The About paragraph is still a placeholder. Nothing is made up.
 
 Built the same way as ethanmogilinedi.com: Vite + GSAP, served on Railway by `sirv`.
 
@@ -21,8 +20,9 @@ npm run build      # → dist/
 | To change…                         | Edit                                   |
 | ---------------------------------- | -------------------------------------- |
 | Any words, prices, hours, links    | `src/content.js` (everything is here)  |
-| Menu items                         | replace `placeholderItems(6)` in `content.js` with a list of real items |
-| Online ordering (Toast)            | paste the Toast ordering link into `orderUrl` in `content.js` — every "Order online" button uses it and opens it in a new tab |
+| Menu items and prices              | `menu` in `content.js` (a trailing `+` on a price means "from") |
+| Ordering links                     | `orderLinks` in `content.js` (Toast, DoorDash, Uber Eats) |
+| Photos                             | add a line to `tools/optimize_photos.py`, run it on the shoot folder, point a `photo.src` at `/photos/<name>.webp` |
 | Colours, font, sizes, spacing      | `src/styles/tokens.css`                |
 | Add / remove / reorder sections    | `SECTIONS` in `src/main.js`            |
 | One section's layout               | `src/sections/<name>.js` + its block in `src/styles/sections.css` |
@@ -70,13 +70,13 @@ Below the hero, everything with `data-reveal` eases up as it scrolls into view
 
 ```
 index.html               shell (navy first paint, favicon)
-public/                  favicon.svg, apple-touch-icon.png
+public/                  favicon.svg, apple-touch-icon.png, photos/ (web-sized shoot)
 src/main.js              assembles the page and starts the intro
 src/content.js           ALL site content
 src/intro.js             the opening animation
 src/ready.js, reveal.js  load gate, scroll reveals
 src/components/          logo, brick texture, photo slot, buttons/labels
-src/sections/            nav, hero, marquee, menu, favorites, about, gallery (Instagram), visit, footer
+src/sections/            nav, hero (combo), marquee, order, combos, menu, about, visit, gallery (Instagram), footer
 src/styles/              tokens, base, components, sections, intro
-tools/                   logo tracer + the original logo
+tools/                   logo tracer + the original logo, photo optimizer
 ```

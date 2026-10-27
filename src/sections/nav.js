@@ -1,4 +1,4 @@
-import { nav as links, navCta } from "../content.js";
+import { nav as links, orderCta as navCta } from "../content.js";
 import { logoMark } from "../components/logo.js";
 import { button } from "../components/ui.js";
 

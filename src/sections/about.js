@@ -4,7 +4,7 @@ import { photo } from "../components/photo.js";
 
 export default {
   render: () => `
-    <section class="section section--light about" id="about">
+    <section class="section section--dark about" id="about">
       <div class="container about__grid">
         <div class="about__media">
           <div class="about__main" data-reveal style="--i:0">${photo({ ...about.photo, ratio: "4 / 5", tone: "cream" })}</div>
