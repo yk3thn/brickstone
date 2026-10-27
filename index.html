@@ -4,12 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#1b2353" />
-    <title>Brickstone · Subs, Pizzas, Pastas &amp; Coffee</title>
-    <meta name="description" content="Brickstone — subs, pizzas, pastas and coffee." />
+    <title>Brickstone</title>
+    <meta name="description" content="Brickstone at 66 Broad St NW in Downtown Atlanta: toasted subs, pizza by the slice or whole pie, oven-baked pastas, salads and Vietnamese phin coffee." />
+    <link rel="canonical" href="https://brickstone.cafe/" />
+
+    <!-- How the site looks when the link is shared (texts, social apps). -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Brickstone" />
+    <meta property="og:title" content="Brickstone · Subs, Pizzas, Pastas & Coffee in Downtown Atlanta" />
+    <meta property="og:description" content="Toasted subs, pizza by the slice or whole pie, oven-baked pastas, salads and Vietnamese phin coffee at 66 Broad St NW." />
+    <meta property="og:url" content="https://brickstone.cafe/" />
+    <meta property="og:image" content="https://brickstone.cafe/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="The Brickstone logo next to two pizza slices" />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
     <!-- First paint is the brand navy, never a white flash, while the page builds. -->
     <style>html, body { background: #1b2353; margin: 0; }</style>
+    <!-- Without JavaScript there's no intro and no scroll reveals: just show the page. -->
+    <noscript><style>#intro { display: none; } [data-reveal] { opacity: 1 !important; transform: none !important; } .nav__logo, .nav__links, .nav__cta { opacity: 1 !important; transform: none !important; }</style></noscript>
   </head>
   <body>
     <div id="app"></div>

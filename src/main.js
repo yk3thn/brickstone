@@ -5,38 +5,21 @@ import "./styles/components.css";
 import "./styles/sections.css";
 import "./styles/intro.css";
 
-import nav from "./sections/nav.js";
-import hero from "./sections/hero.js";
-import marquee from "./sections/marquee.js";
-import menu from "./sections/menu.js";
-import order from "./sections/order.js";
-import combos from "./sections/combos.js";
-import about from "./sections/about.js";
-import gallery from "./sections/gallery.js";
-import visit from "./sections/visit.js";
-import footer from "./sections/footer.js";
-
+import { renderPage, SECTIONS, CHROME } from "./render.js";
 import { installWallTextures } from "./components/brick.js";
 import { initPhotos } from "./components/photo.js";
-import { introMarkup, runIntro } from "./intro.js";
+import { runIntro } from "./intro.js";
 import { whenReady } from "./ready.js";
 import { revealIntroItems, initScrollReveals } from "./reveal.js";
 
-// The page, top to bottom. Reorder, add or remove sections here — each one
-// is a self-contained file in ./sections with its words in content.js.
-const SECTIONS = [hero, marquee, order, combos, menu, about, visit, gallery];
-
-document.querySelector("#app").innerHTML = `
-  ${introMarkup()}
-  <div id="site">
-    ${nav.render()}
-    <main>${SECTIONS.map((s) => s.render()).join("")}</main>
-    ${footer.render()}
-  </div>`;
+// The built site arrives with the page already in the HTML (see
+// tools/prerender.mjs); the dev server doesn't, so build it here then.
+const app = document.querySelector("#app");
+if (!app.children.length) app.innerHTML = renderPage();
 
 installWallTextures();
 initPhotos();
-[nav, ...SECTIONS, footer].forEach((section) => section.init?.());
+[...CHROME, ...SECTIONS].forEach((section) => section.init?.());
 
 // The whole page is built and laid out underneath before the intro starts;
 // the intro only uncovers it.

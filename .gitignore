@@ -6,3 +6,4 @@ dist
 .vscode/*
 .idea
 tools/out/mask.png
+dist-ssr

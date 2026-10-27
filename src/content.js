@@ -8,12 +8,21 @@
 // touch.
 // ==========================================================================
 
+const postal = { street: "66 Broad St NW", city: "Atlanta", state: "Georgia", stateCode: "GA", zip: "30303", country: "US" };
+
 export const site = {
   name: "Brickstone",
+  url: "https://brickstone.cafe",
+  // The names the restaurant is listed under elsewhere (Toast, Uber Eats),
+  // so search engines connect them to this site.
+  alternateNames: ["BrickStone Cafe", "BrickStone Cafe & Restaurant"],
   // The four words under the logo.
   tagline: ["Subs", "Pizzas", "Pastas", "Coffee"],
+  // What the menu serves, for search engines.
+  cuisines: ["Pizza", "Sandwiches", "Pasta", "Salads", "Coffee"],
 
-  address: ["66 Broad St NW", "Atlanta, Georgia 30303"],
+  postal,
+  address: [postal.street, `${postal.city}, ${postal.state} ${postal.zip}`],
   mapUrl: "https://www.google.com/maps/search/?api=1&query=66+Broad+St+NW+Atlanta+GA+30303",
   phone: "(678) 300-2621",
 

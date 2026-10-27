@@ -24,7 +24,9 @@ npm run build      # → dist/
 | Ordering links                     | `orderLinks` in `content.js` (Toast, DoorDash, Uber Eats) |
 | Photos                             | add a line to `tools/optimize_photos.py`, run it on the shoot folder, point a `photo.src` at `/photos/<name>.webp` |
 | Colours, font, sizes, spacing      | `src/styles/tokens.css`                |
-| Add / remove / reorder sections    | `SECTIONS` in `src/main.js`            |
+| Add / remove / reorder sections    | `SECTIONS` in `src/render.js`          |
+| Tab title, search description, link-preview text | the `<head>` of `index.html` |
+| Link-preview image, logo PNG, PNG favicon | `python tools/make_social.py` (rebuilds them into `public/`) |
 | One section's layout               | `src/sections/<name>.js` + its block in `src/styles/sections.css` |
 | Intro pacing                       | `INTRO_TIMING` at the top of `src/intro.js` |
 | Swap a placeholder for a real photo| give that item's `photo` a `src` in `content.js` (put the file in `public/`) |
@@ -45,6 +47,22 @@ Words wrapped in `*asterisks*` in a title are set in orange.
 - **Texture** — the logo's brick wall, measured off the artwork (long + short bricks, each
   course shifted half a pattern), generated in `src/components/brick.js` and used for the
   intro, the hero, the footer and every placeholder photo.
+
+## Search engines (SEO)
+
+- **The page is pre-rendered.** `npm run build` builds the site, then `tools/prerender.mjs`
+  writes the full page into `dist/index.html`, so Google, Bing, link previews and anything
+  that doesn't run JavaScript see the menu, hours, address and phone in the HTML itself.
+  In the browser, `main.js` picks up that markup instead of rebuilding it.
+- **Structured data.** The same step adds schema.org `Restaurant` data (address, phone,
+  hours, price range, the whole menu with prices, the ordering links), generated from
+  `content.js` so it always matches the page. Check it at
+  [search.google.com/test/rich-results](https://search.google.com/test/rich-results).
+- **Head tags.** Title, description, canonical URL and Open Graph / Twitter tags for the
+  share preview (`public/og-image.jpg`).
+- **`public/robots.txt` and `public/sitemap.xml`.** Submit the sitemap in Google Search Console.
+- **Speed.** Text files are pre-compressed (`.br` / `.gz`), which `sirv` serves automatically;
+  photos are small WebP and load lazily below the hero.
 
 ## How the intro works
 
@@ -71,12 +89,13 @@ Below the hero, everything with `data-reveal` eases up as it scrolls into view
 ```
 index.html               shell (navy first paint, favicon)
 public/                  favicon.svg, apple-touch-icon.png, photos/ (web-sized shoot)
-src/main.js              assembles the page and starts the intro
+src/render.js            the page as HTML + structured data (section order lives here)
+src/main.js              renders (dev) or picks up (built) the page, starts the intro
 src/content.js           ALL site content
 src/intro.js             the opening animation
 src/ready.js, reveal.js  load gate, scroll reveals
 src/components/          logo, brick texture, photo slot, buttons/labels
 src/sections/            nav, hero (combo), marquee, order, combos, menu, about, visit, gallery (Instagram), footer
 src/styles/              tokens, base, components, sections, intro
-tools/                   logo tracer + the original logo, photo optimizer
+tools/                   logo tracer, photo optimizer, pre-render step, share-image maker
 ```

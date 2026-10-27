@@ -13,7 +13,7 @@ export function photo({ label = "Photo", src, alt = "", ratio = "4 / 3", tone = 
     const loading = eager ? "eager" : "lazy";
     return `
       <figure class="photo photo--img ${className}" ${style}>
-        <img src="${src}" alt="${alt}" loading="${loading}" decoding="async" />
+        <img src="${src}" alt="${alt}" loading="${loading}" decoding="async"${eager ? ' fetchpriority="high"' : ""} />
       </figure>`;
   }
   return `

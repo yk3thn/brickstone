@@ -1,6 +1,4 @@
 import gsap from "gsap";
-import { site } from "./content.js";
-import { logoMark } from "./components/logo.js";
 import { courseTile, brickUnit, token } from "./components/brick.js";
 
 // Every beat of the opening, in seconds. Tune the pacing here — nothing else
@@ -25,29 +23,23 @@ const LAY_ORDER = ["B", "R", "I", "C", "K", "S", "T", "N", "E"];
 const COURSE_PER_MARK = 133 / 1050;
 const MIN_COURSE = 40;
 
-export function introMarkup() {
-  if (!introEnabled()) return "";
-  return `
-    <div id="intro" aria-hidden="true">
-      <div class="intro__wall"></div>
-      <div class="intro__stage">
-        <div class="intro__mark">${logoMark({ decorative: true })}</div>
-        <p class="intro__tagline">${site.tagline.join("<span>|</span>")}</p>
-      </div>
-    </div>`;
-}
-
 // `?intro=0` skips the opening — handy while working on the page.
 function introEnabled() {
   return new URLSearchParams(location.search).get("intro") !== "0";
 }
 
-// Plays the opening, then hands the page over.
+// Plays the opening, then hands the page over. The overlay itself is part
+// of the page markup (render.js).
 //   ready    — a promise for "everything is loaded"; nothing moves before it
 //   onReveal — called as the wall comes down, to bring the page content in
 export function runIntro({ ready, onReveal }) {
-  const intro = document.querySelector("#intro");
+  let intro = document.querySelector("#intro");
   const nav = document.querySelector("[data-nav]");
+
+  if (intro && !introEnabled()) {
+    intro.remove();
+    intro = null;
+  }
 
   if (!intro) {
     nav.classList.add("is-ready", "has-logo");
